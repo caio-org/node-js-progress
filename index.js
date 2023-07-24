@@ -1,12 +1,22 @@
 const fs = require('fs');
 const http = require('http');
-
+const url = require('url');
 
 /////////////////////////////////////////////////////////////////////
 // SERVER 
 
 const server = http.createServer((req, res) => {
-    res.end('Helo from the server!');
+    const pathName = req.url;
+
+    if(pathName === '/overview') {
+        res.end('test')
+    } else {
+        res.writeHead(404, {
+            'Content-type': 'text/html',
+            'my-own-header': 'hello caio'
+        }); // status request
+        res.end('<h1>Helo from the server!</h1>');
+    }
 });
 
 server.listen(8000, '127.0.0.1', () => {
