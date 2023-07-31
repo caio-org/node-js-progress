@@ -15,7 +15,7 @@ const server = http.createServer((req, res) => {
             'Content-type': 'text/html',
             'my-own-header': 'hello caio'
         }); // status request
-        res.end('<h1>Helo from the server!</h1>');
+        res.end('<h1>Helo from the serdver!</h1>');
     }
 });
 
